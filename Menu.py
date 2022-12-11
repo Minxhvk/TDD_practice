@@ -5,6 +5,9 @@ class Menu:
         self.price = price
         self.amount = amount
 
+    def __eq__(self, other: object) -> bool:
+        return (self.get_name(), self.get_price(), self.get_amount()) == (other.get_name(), other.get_price(), other.get_amount())
+
     def __str__(self) -> str:
         return "이름 : {}, 가격 : {}, 수량 : {}".format(self.name, self.price, self.amount)
 
@@ -16,8 +19,3 @@ class Menu:
 
     def get_amount(self):
         return self.amount
-
-    def equals(self, menu):
-        return menu.get_name() == self.get_name() \
-            and menu.get_price() == self.get_price() \
-            and menu.get_amount() == self.get_amount()

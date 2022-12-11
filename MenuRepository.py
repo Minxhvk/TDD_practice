@@ -21,7 +21,7 @@ class MenuRepository:
     @staticmethod
     def get_idx(menu) -> int:
         for idx, i in enumerate(MenuRepository.menu_list):
-            if i.equals(menu):
+            if i == menu:
                 return idx
 
         raise AttributeError
@@ -30,11 +30,10 @@ class MenuRepository:
     def edit_menu_name(want_change_menu, new_name) -> None:
 
         origin_idx = MenuRepository.get_idx(want_change_menu)
-
         change_menu = Menu(new_name, want_change_menu.get_price(),
                            want_change_menu.get_amount())
 
-        MenuRepository.menu_list[origin_idx] = change_menu
+        MenuRepository.edit_menut_list(origin_idx, change_menu)
 
     @staticmethod
     def edit_menu_price(want_change_menu, new_price) -> None:
@@ -43,7 +42,7 @@ class MenuRepository:
         change_menu = Menu(want_change_menu.get_name(),
                            new_price, want_change_menu.get_amount())
 
-        MenuRepository.menu_list[origin_idx] = change_menu
+        MenuRepository.edit_menut_list(origin_idx, change_menu)
 
     @staticmethod
     def edit_menu_amount(want_change_menu, new_amount) -> None:
@@ -52,8 +51,16 @@ class MenuRepository:
         change_menu = Menu(want_change_menu.get_name(),
                            want_change_menu.get_price(), new_amount)
 
-        MenuRepository.menu_list[origin_idx] = change_menu
+        MenuRepository.edit_menut_list(origin_idx, change_menu)
 
     @staticmethod
     def del_menu(menu) -> None:
         MenuRepository.menu_list.remove(menu)
+
+    @staticmethod
+    def get_menu_list() -> list:
+        return MenuRepository.menu_list
+
+    @staticmethod
+    def edit_menut_list(idx, menu) -> None:
+        MenuRepository.menu_list[idx] = menu
