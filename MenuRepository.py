@@ -33,7 +33,7 @@ class MenuRepository:
         change_menu = Menu(new_name, want_change_menu.get_price(),
                            want_change_menu.get_amount())
 
-        MenuRepository.edit_menut_list(origin_idx, change_menu)
+        MenuRepository.edit_menu_list(origin_idx, change_menu)
 
     @staticmethod
     def edit_menu_price(want_change_menu, new_price) -> None:
@@ -42,7 +42,7 @@ class MenuRepository:
         change_menu = Menu(want_change_menu.get_name(),
                            new_price, want_change_menu.get_amount())
 
-        MenuRepository.edit_menut_list(origin_idx, change_menu)
+        MenuRepository.edit_menu_list(origin_idx, change_menu)
 
     @staticmethod
     def edit_menu_amount(want_change_menu, new_amount) -> None:
@@ -51,7 +51,7 @@ class MenuRepository:
         change_menu = Menu(want_change_menu.get_name(),
                            want_change_menu.get_price(), new_amount)
 
-        MenuRepository.edit_menut_list(origin_idx, change_menu)
+        MenuRepository.edit_menu_list(origin_idx, change_menu)
 
     @staticmethod
     def del_menu(menu) -> None:
@@ -62,5 +62,5 @@ class MenuRepository:
         return MenuRepository.menu_list
 
     @staticmethod
-    def edit_menut_list(idx, menu) -> None:
+    def edit_menu_list(idx, menu) -> None:
         MenuRepository.menu_list[idx] = menu
